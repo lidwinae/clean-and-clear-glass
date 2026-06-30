@@ -1,6 +1,17 @@
-# Clean and Clear Glass
+# Clean and Clear Glass (C&CG)
 
-Clean and Clear Glass is a Fabric client-side mod for Minecraft Java Edition that makes vanilla glass blocks and glass panes cleaner while keeping matching glass variants visually connected.
+<table>
+  <tr>
+    <td><strong>GitHub Releases</strong></td>
+    <td><a href="https://github.com/lidwinae/clean-and-clear-glass/releases">https://github.com/lidwinae/clean-and-clear-glass/releases</a></td>
+  </tr>
+  <tr>
+    <td><strong>Google Sites</strong></td>
+    <td><a href="https://sites.google.com/view/lidwinae/mods/clean-and-clear-glass">https://sites.google.com/view/lidwinae/mods/clean-and-clear-glass</a></td>
+  </tr>
+</table>
+
+Clean and Clear Glass, or C&CG, is a Fabric client-side mod for Minecraft Java Edition that makes vanilla glass blocks and glass panes cleaner while keeping matching glass variants visually connected.
 
 The mod keeps the original vanilla block IDs. It does not add new glass blocks or items.
 
