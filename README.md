@@ -33,14 +33,14 @@ Clean and Clear Glass works by wrapping Minecraft's baked vanilla glass models o
 
 ## Supported Version
 
-- Minecraft Java Edition 26.1
+- Minecraft Java Edition 26.1+
 - Fabric Loader
 - Fabric API
 - Java 25
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.1.
+1. Install Fabric Loader for Minecraft 26.1+.
 2. Install Fabric API.
 3. Put the mod `.jar` file into your `mods` folder.
 4. Launch the game with the Fabric profile.
