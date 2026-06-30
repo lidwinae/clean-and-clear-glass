@@ -34,6 +34,14 @@ Clean and Clear Glass works by wrapping Minecraft's baked vanilla glass models o
 3. Put the mod `.jar` file into your `mods` folder.
 4. Launch the game with the Fabric profile.
 
+## Usage & Attribution
+
+You are allowed to make videos, reviews, tutorials, or showcases about this mod.
+
+Please credit me as the original creator and include a link to the official download page or GitHub repository.
+
+You are not allowed to claim this mod as your own. Reuploads, forks, or modified versions must follow the project license and the asset notice below.
+
 ## Building From Source
 
 On Windows:

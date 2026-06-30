@@ -3,20 +3,17 @@
 	"id": "clean-and-clear-glass",
 	"version": "${version}",
 	"name": "Clean and Clear Glass",
-	"description": "Cleaner connected rendering for vanilla glass blocks and glass panes.",
+	"description": "Client-side connected glass rendering for vanilla glass blocks and panes.",
 	"authors": [
 		"lidwinae"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/"
+		"homepage": "https://github.com/lidwinae/clean-and-clear-glass"
 	},
 	"license": "MIT",
 	"icon": "assets/clean-and-clear-glass/icon.png",
-	"environment": "*",
+	"environment": "client",
 	"entrypoints": {
-		"main": [
-			"lidwinae.clean.and.clear.glass.CleanAndClearGlass"
-		],
 		"client": [
 			"lidwinae.clean.and.clear.glass.client.CleanAndClearGlassClient"
 		],
