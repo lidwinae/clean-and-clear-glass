@@ -4,11 +4,18 @@ import java.util.Set;
 
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
 import net.fabricmc.fabric.api.client.model.loading.v1.ModelModifier;
+import net.minecraft.client.resources.model.sprite.Material;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 
 public final class VanillaGlassModelPlugin {
     private VanillaGlassModelPlugin() {}
+
+    private static final Material TINTED_GLASS_CENTER_MATERIAL = new Material(
+            Identifier.fromNamespaceAndPath("minecraft", "block/tinted_glass_center"),
+            true
+    );
 
     // Full glass blocks keep their vanilla block IDs, but use connected client geometry.
     private static final Set<Block> CONNECTED_GLASS_BLOCKS = Set.of(
@@ -60,6 +67,15 @@ public final class VanillaGlassModelPlugin {
                 Block block = context.state().getBlock();
 
                 if (CONNECTED_GLASS_BLOCKS.contains(block)) {
+                    if (block == Blocks.TINTED_GLASS) {
+                        Material.Baked centerMaterial = context.baker().materials().get(
+                                TINTED_GLASS_CENTER_MATERIAL,
+                                () -> "clean-and-clear-glass tinted glass center"
+                        );
+
+                        return new VanillaConnectedGlassModel(model, centerMaterial);
+                    }
+
                     return new VanillaConnectedGlassModel(model);
                 }
 

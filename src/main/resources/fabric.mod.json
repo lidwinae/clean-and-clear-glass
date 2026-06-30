@@ -16,9 +16,6 @@
 	"entrypoints": {
 		"client": [
 			"lidwinae.clean.and.clear.glass.client.CleanAndClearGlassClient"
-		],
-		"fabric-datagen": [
-			"lidwinae.clean.and.clear.glass.client.CleanAndClearGlassDataGenerator"
 		]
 	},
 	"depends": {
