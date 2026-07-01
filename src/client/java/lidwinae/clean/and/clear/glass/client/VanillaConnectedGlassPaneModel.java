@@ -75,14 +75,26 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         boolean westUp = hasSamePaneSegment(level, pos.above(), state, Direction.WEST);
         boolean westDown = hasSamePaneSegment(level, pos.below(), state, Direction.WEST);
 
-        boolean shouldFillIntersection = north && east && south && west;
+        int connectedSides = (north ? 1 : 0)
+                + (east ? 1 : 0)
+                + (south ? 1 : 0)
+                + (west ? 1 : 0);
 
-        // The center post fills cross intersections; otherwise it exposes only unconnected sides.
+        boolean crossIntersection = connectedSides == 4;
+        boolean tIntersection = connectedSides == 3;
+
+        // Cross intersections fill all center faces.
+        // T intersections add one extra center face opposite the missing side.
+        boolean showCenterNorth = crossIntersection || !north || (tIntersection && !south);
+        boolean showCenterEast = crossIntersection || !east || (tIntersection && !west);
+        boolean showCenterSouth = crossIntersection || !south || (tIntersection && !north);
+        boolean showCenterWest = crossIntersection || !west || (tIntersection && !east);
+
         emitBox(emitter, material, PANE_MIN, 0, PANE_MIN, PANE_MAX, 1, PANE_MAX,
-                shouldFillIntersection || !north,
-                shouldFillIntersection || !east,
-                shouldFillIntersection || !south,
-                shouldFillIntersection || !west,
+                showCenterNorth,
+                showCenterEast,
+                showCenterSouth,
+                showCenterWest,
                 true,
                 true,
                 sameNorth, sameEast, sameSouth, sameWest,
