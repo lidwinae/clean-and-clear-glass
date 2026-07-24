@@ -1,0 +1,13 @@
+{
+	"required": false,
+	"minVersion": "0.8",
+	"package": "lidwinae.clean.and.clear.glass.client.mixin.sodium",
+	"compatibilityLevel": "JAVA_17",
+	"plugin": "lidwinae.clean.and.clear.glass.client.mixin.sodium.SodiumMixinPlugin",
+	"client": [
+		"BlockRendererMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

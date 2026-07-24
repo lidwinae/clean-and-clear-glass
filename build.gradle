@@ -1,0 +1,87 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
+}
+
+loom {
+	splitEnvironmentSourceSets()
+
+	mods {
+		"clean-and-clear-glass" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modCompileOnly "maven.modrinth:modmenu:${project.modmenu_version}"
+	modCompileOnly "maven.modrinth:sodium:${project.sodium_version}"
+
+	if (project.hasProperty("testSodium")) {
+		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
+	}
+
+	if (project.hasProperty("testIndium")) {
+		modRuntimeOnly "maven.modrinth:indium:${project.indium_version}"
+	}
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 17
+	it.options.compilerArgs.add("-Xlint:deprecation")
+}
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.withType(JavaExec).configureEach {
+	javaLauncher = javaToolchains.launcherFor {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+
+	// Sodium 0.5.13 expects the release LWJGL bundled with Minecraft 1.20.1,
+	// while Loom uses a newer development snapshot. This only affects dev runs.
+	jvmArgs "-Dsodium.checks.issue2561=false"
+
+	if (project.hasProperty("quickPlay")) {
+		args "--quickPlaySingleplayer", "New World"
+	}
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE.md") {
+		rename { "LICENSE_${projectName}.md" }
+	}
+}
