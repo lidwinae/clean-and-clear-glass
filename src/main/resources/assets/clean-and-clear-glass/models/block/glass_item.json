@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "clean-and-clear-glass:block/glass"
+  }
+}
