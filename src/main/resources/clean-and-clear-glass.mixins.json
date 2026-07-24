@@ -1,0 +1,12 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "lidwinae.clean.and.clear.glass.client.mixin",
+	"compatibilityLevel": "JAVA_8",
+	"client": [
+		"ModelManagerMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

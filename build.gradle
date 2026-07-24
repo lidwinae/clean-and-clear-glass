@@ -1,0 +1,69 @@
+plugins {
+	id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+repositories {
+	maven {
+		name = "Modrinth"
+		url = "https://api.modrinth.com/maven"
+	}
+	maven {
+		url = "https://maven.terraformersmc.com/releases/"
+	}
+}
+
+dependencies {
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings loom.officialMojangMappings()
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+	modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+	modCompileOnly "maven.modrinth:sodium:${project.sodium_version}"
+
+	if (project.hasProperty("testSodium")) {
+		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version}"
+	}
+
+	if (project.hasProperty("testIndium")) {
+		modRuntimeOnly "maven.modrinth:indium:${project.indium_version}"
+	}
+}
+
+processResources {
+	def version = project.version
+	inputs.property "version", version
+
+	filesMatching("fabric.mod.json") {
+		expand "version": version
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 8
+}
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(JavaExec).configureEach {
+	javaLauncher = javaToolchains.launcherFor {
+		// Loom's current development LWJGL snapshot crashes in the AMD OpenGL
+		// driver with this machine's Java 8 runtime. The produced mod still
+		// targets Java 8; Java 17 is used only by runClient.
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE.md") {
+		rename { "LICENSE_${projectName}.md" }
+	}
+}

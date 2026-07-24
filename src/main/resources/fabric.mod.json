@@ -1,0 +1,38 @@
+{
+	"schemaVersion": 1,
+	"id": "clean-and-clear-glass",
+	"version": "${version}",
+	"name": "Clean and Clear Glass",
+	"description": "Client-side clean, clear, and connected rendering for vanilla glass blocks and panes.",
+	"authors": [
+		"lidwinae"
+	],
+	"contact": {
+		"homepage": "https://github.com/lidwinae/clean-and-clear-glass"
+	},
+	"license": "LicenseRef-Lidwinae-Mod-License-1.0",
+	"icon": "assets/clean-and-clear-glass/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"lidwinae.clean.and.clear.glass.client.CleanAndClearGlassClient"
+		],
+		"modmenu": [
+			"lidwinae.clean.and.clear.glass.client.CleanAndClearGlassModMenu"
+		]
+	},
+	"mixins": [
+		"clean-and-clear-glass.mixins.json",
+		"clean-and-clear-glass.sodium.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.14.0",
+		"minecraft": "~1.16.5",
+		"java": ">=8",
+		"fabric": ">=0.42.0+1.16"
+	},
+	"suggests": {
+		"sodium": "0.2.0",
+		"modmenu": "*"
+	}
+}

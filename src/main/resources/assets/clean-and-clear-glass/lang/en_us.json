@@ -1,0 +1,14 @@
+{
+	"key.category.clean-and-clear-glass.main": "Clean and Clear Glass",
+	"key.clean-and-clear-glass.open_settings": "Clean and Clear Glass Settings (Alt + Key)",
+	"screen.clean-and-clear-glass.settings": "Clean and Clear Glass Settings",
+	"option.clean-and-clear-glass.enabled": "Clean and Clear Glass: %s",
+	"option.clean-and-clear-glass.enabled.on": "ON",
+	"option.clean-and-clear-glass.enabled.off": "OFF",
+	"option.clean-and-clear-glass.glass": "Regular Glass: %s",
+	"option.clean-and-clear-glass.glass.clear": "Clear",
+	"option.clean-and-clear-glass.glass.subtle": "Subtle",
+	"option.clean-and-clear-glass.key_bind": "Key Bind: Alt + %s",
+	"option.clean-and-clear-glass.change_key_in_controls": "Change this key in Controls.",
+	"button.clean-and-clear-glass.apply_reload": "Apply & Reload"
+}
