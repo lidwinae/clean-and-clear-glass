@@ -1,13 +1,18 @@
+<p align="left">
+  <a href="https://ko-fi.com/lidwinae">
+    <img
+      src="https://img.shields.io/badge/Support%20me%20on-Ko--fi-FF5E5B?style=for-the-badge&logo=kofi&logoColor=white"
+      alt="Support me on Ko-fi"
+    />
+  </a>
+</p>
+
 # Clean and Clear Glass (C&CG)
 
 <table>
   <tr>
     <td><strong>GitHub Releases</strong></td>
     <td><a href="https://github.com/lidwinae/clean-and-clear-glass/releases">https://github.com/lidwinae/clean-and-clear-glass/releases</a></td>
-  </tr>
-  <tr>
-    <td><strong>Google Sites</strong></td>
-    <td><a href="https://sites.google.com/view/lidwinae/mods/clean-and-clear-glass">https://sites.google.com/view/lidwinae/mods/clean-and-clear-glass</a></td>
   </tr>
   <tr>
     <td><strong>CurseForge</strong></td>
