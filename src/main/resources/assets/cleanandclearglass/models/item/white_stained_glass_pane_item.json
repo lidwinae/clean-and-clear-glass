@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "cleanandclearglass:block/white_stained_glass"
+  }
+}
