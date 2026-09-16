@@ -1,4 +1,4 @@
-# Clean and Clear Glass — NeoForge 1.21.1
+# Clean and Clear Glass - NeoForge 1.21.1
 
 A standalone client-side NeoForge mod that provides clean, clear,
 and connected rendering for vanilla glass blocks and glass panes.
