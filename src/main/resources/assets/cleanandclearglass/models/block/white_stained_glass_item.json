@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "cleanandclearglass:block/white_stained_glass"
+  }
+}

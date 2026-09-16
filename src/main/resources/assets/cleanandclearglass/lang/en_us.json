@@ -1,0 +1,24 @@
+{
+  "screen.cleanandclearglass.settings": "Clean and Clear Glass Settings",
+
+  "key.cleanandclearglass.open_settings": "Open Settings",
+  "key.category.cleanandclearglass.main": "Clean and Clear Glass",
+
+  "option.cleanandclearglass.enabled": "Clean and Clear Glass: %s",
+  "option.cleanandclearglass.enabled.on": "ON",
+  "option.cleanandclearglass.enabled.off": "OFF",
+
+  "option.cleanandclearglass.glass": "Regular Glass: %s",
+  "option.cleanandclearglass.glass.clear": "Clear",
+  "option.cleanandclearglass.glass.subtle": "Subtle",
+
+  "option.cleanandclearglass.tinted_glass": "Tinted Glass: %s",
+  "option.cleanandclearglass.tinted_glass.subtle": "Subtle",
+  "option.cleanandclearglass.tinted_glass.visible": "Visible",
+  "option.cleanandclearglass.tinted_glass.clear": "Clear",
+
+  "option.cleanandclearglass.key_bind": "Open Settings: %s",
+  "option.cleanandclearglass.change_key_in_controls": "Change this at Controls > Key Binds",
+
+  "button.cleanandclearglass.apply_reload": "Apply & Reload"
+}
