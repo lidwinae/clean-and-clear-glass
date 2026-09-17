@@ -15,7 +15,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 public class VanillaConnectedGlassModel extends WrapperBlockStateModel {
     private static final float T = 1.0F / 16.0F;
-    private static final float LAYERED_CENTER_DEPTH = 1.0F / 1024.0F;
     private static final float CENTER_UV_MIN = 2.0F / 16.0F;
     private static final float CENTER_UV_MAX = 14.0F / 16.0F;
 
@@ -152,7 +151,7 @@ public class VanillaConnectedGlassModel extends WrapperBlockStateModel {
     ) {
         emitter.square(face, left, bottom, right, top, depth)
                 .materialBake(material, MutableQuadView.BAKE_LOCK_UV)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 
@@ -166,23 +165,27 @@ public class VanillaConnectedGlassModel extends WrapperBlockStateModel {
             boolean connectTop,
             boolean fullTexture
     ) {
-        float left = fullTexture || connectLeft ? 0 : T;
-        float bottom = fullTexture || connectBottom ? 0 : T;
-        float right = fullTexture || connectRight ? 1 : 1 - T;
-        float top = fullTexture || connectTop ? 1 : 1 - T;
-        float uvLeft = fullTexture ? 0 : CENTER_UV_MIN;
-        float uvBottom = fullTexture ? 0 : CENTER_UV_MIN;
-        float uvRight = fullTexture ? 1 : CENTER_UV_MAX;
-        float uvTop = fullTexture ? 1 : CENTER_UV_MAX;
-        float depth = fullTexture ? LAYERED_CENTER_DEPTH : 0;
+        // Borders own their strips; the glass fills only the remaining area.
+        // Keep both on the block face so perpendicular faces meet at inner corners.
+        float left = connectLeft ? 0 : T;
+        float bottom = connectBottom ? 0 : T;
+        float right = connectRight ? 1 : 1 - T;
+        float top = connectTop ? 1 : 1 - T;
 
-        emitter.square(face, left, bottom, right, top, depth)
+        // Crop full-face textures with the geometry, without stretching the marks.
+        // Vertex 0 is the top-left corner, and texture V runs downwards.
+        float uvLeft = fullTexture ? left : CENTER_UV_MIN;
+        float uvBottom = fullTexture ? 1 - top : CENTER_UV_MIN;
+        float uvRight = fullTexture ? right : CENTER_UV_MAX;
+        float uvTop = fullTexture ? 1 - bottom : CENTER_UV_MAX;
+
+        emitter.square(face, left, bottom, right, top, 0)
                 .uv(0, uvLeft, uvBottom)
                 .uv(1, uvLeft, uvTop)
                 .uv(2, uvRight, uvTop)
                 .uv(3, uvRight, uvBottom)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 

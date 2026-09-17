@@ -24,7 +24,7 @@
   </tr>
 </table>
 
-Clean and Clear Glass, or C&CG, is a Fabric client-side mod for Minecraft Java Edition 26.2 that makes vanilla glass blocks and glass panes cleaner while keeping matching glass variants visually connected.
+Clean and Clear Glass, or C&CG, is a Fabric client-side mod for Minecraft Java Edition 26.3 that makes vanilla glass blocks and glass panes cleaner while keeping matching glass variants visually connected.
 
 The mod keeps the original vanilla block IDs. It does not add new glass blocks or items.
 
@@ -77,14 +77,14 @@ When the mod is turned off, the wrapped models are skipped and Minecraft's origi
 
 ## Supported Version
 
-- Minecraft Java Edition 26.2
-- Fabric Loader 0.19.3 or newer
-- Fabric API for Minecraft 26.2
+- Minecraft Java Edition 26.3
+- Fabric Loader 0.19.5 or newer
+- Fabric API for Minecraft 26.3
 - Java 25
 
 ## Installation
 
-1. Install Fabric Loader for Minecraft 26.2.
+1. Install Fabric Loader for Minecraft 26.3.
 2. Install the matching Fabric API version.
 3. Put the mod `.jar` file into your `mods` folder.
 4. Launch the game with the Fabric profile.
@@ -93,7 +93,7 @@ When the mod is turned off, the wrapped models are skipped and Minecraft's origi
 
 Clean and Clear Glass is licensed under the **Lidwinae Mod License v1.0**.
 
-See the included [LICENSE](LICENSE) file or the [canonical license text](https://github.com/lidwinae/lidwinae-mod-license/blob/v1.0/LICENSE.md) for the complete terms.
+See the included [LICENSE.md](LICENSE.md) file or the [canonical license text](https://github.com/lidwinae/lidwinae-mod-license/blob/v1.0/LICENSE.md) for the complete terms.
 
 This license applies to the project's original materials. Minecraft and third-party assets remain subject to the rights of their respective owners.
 

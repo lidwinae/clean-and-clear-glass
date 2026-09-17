@@ -299,7 +299,7 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         emitter.nominalFace(face)
                 .cullFace(null)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 
@@ -542,7 +542,7 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         emitter.nominalFace(face)
                 .cullFace(null)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 
@@ -628,7 +628,7 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         emitter.nominalFace(face)
                 .cullFace(null)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 
@@ -815,7 +815,7 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         emitter.nominalFace(face)
                 .cullFace(null)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 
@@ -910,7 +910,7 @@ public class VanillaConnectedGlassPaneModel extends WrapperBlockStateModel {
         emitter.nominalFace(face)
                 .cullFace(null)
                 .materialBake(material, MutableQuadView.BAKE_NORMALIZED)
-                .diffuseShade(false)
+                .shadeDirectionOverride(Direction.UP)
                 .emit();
     }
 

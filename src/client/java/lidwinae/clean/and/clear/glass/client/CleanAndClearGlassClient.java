@@ -5,7 +5,6 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
 import net.minecraft.client.KeyMapping;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
 
@@ -32,22 +31,17 @@ public class CleanAndClearGlassClient implements ClientModInitializer {
 	private static void registerKeyMappings() {
 		openSettingsKey = KeyMappingHelper.registerKeyMapping(new KeyMapping(
 				"key.clean-and-clear-glass.open_tinted_glass_settings",
-				InputConstants.Type.KEYSYM,
+				InputConstants.Type.KEYBOARD,
 				InputConstants.KEY_G,
 				KeyMapping.Category.register(Identifier.fromNamespaceAndPath("clean-and-clear-glass", "main"))
 		));
 
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while (openSettingsKey.consumeClick()) {
-				if (isAltDown(client)) {
+				if (client.hasAltDown()) {
 					client.setScreenAndShow(new CleanAndClearGlassSettingsScreen(null));
 				}
 			}
 		});
-	}
-
-	private static boolean isAltDown(Minecraft client) {
-		return InputConstants.isKeyDown(client.getWindow(), InputConstants.KEY_LALT)
-				|| InputConstants.isKeyDown(client.getWindow(), InputConstants.KEY_RALT);
 	}
 }
